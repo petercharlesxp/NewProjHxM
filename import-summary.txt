@@ -1,0 +1,83 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* HxMBT.jar
+* NewProjHxM\
+* NewProjHxM\.classpath
+* NewProjHxM\.project
+* NewProjHxM\AndroidManifest.xml
+* NewProjHxM\HxMBT.jar
+* NewProjHxM\bin\
+* NewProjHxM\bin\NewProjHxM.apk
+* NewProjHxM\bin\classes.dex
+* NewProjHxM\bin\com\
+* NewProjHxM\bin\com\NewApp\
+* NewProjHxM\bin\com\NewApp\MainActivity$1.class
+* NewProjHxM\bin\com\NewApp\MainActivity$2.class
+* NewProjHxM\bin\com\NewApp\MainActivity$3.class
+* NewProjHxM\bin\com\NewApp\MainActivity$BTBondReceiver.class
+* NewProjHxM\bin\com\NewApp\MainActivity$BTBroadcastReceiver.class
+* NewProjHxM\bin\com\NewApp\MainActivity.class
+* NewProjHxM\bin\com\NewApp\NewConnectedListener$1.class
+* NewProjHxM\bin\com\NewApp\NewConnectedListener.class
+* NewProjHxM\bin\com\NewApp\R$attr.class
+* NewProjHxM\bin\com\NewApp\R$drawable.class
+* NewProjHxM\bin\com\NewApp\R$id.class
+* NewProjHxM\bin\com\NewApp\R$layout.class
+* NewProjHxM\bin\com\NewApp\R$string.class
+* NewProjHxM\bin\com\NewApp\R.class
+* NewProjHxM\bin\resources.ap_
+* NewProjHxM\default.properties
+* NewProjHxM\gen\
+* NewProjHxM\gen\com\
+* NewProjHxM\gen\com\NewApp\
+* NewProjHxM\gen\com\NewApp\R.java
+* NewProjHxM\proguard.cfg
+* NewProjHxM\res\
+* NewProjHxM\res\drawable-hdpi\
+* NewProjHxM\res\drawable-hdpi\icon1.png
+* NewProjHxM\res\drawable-ldpi\
+* NewProjHxM\res\drawable-ldpi\icon1.png
+* NewProjHxM\res\drawable-mdpi\
+* NewProjHxM\res\drawable-mdpi\icon1.png
+* NewProjHxM\res\layout\
+* NewProjHxM\res\layout\main.xml
+* NewProjHxM\res\values\
+* NewProjHxM\res\values\strings.xml
+* NewProjHxM\src\
+* NewProjHxM\src\com\
+* NewProjHxM\src\com\NewApp\
+* NewProjHxM\src\com\NewApp\MainActivity.java
+* NewProjHxM\src\com\NewApp\NewConnectedListener.java
+* proguard.cfg
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app\src\main\AndroidManifest.xml
+* assets\ => app\src\main\assets
+* res\ => app\src\main\res\
+* src\ => app\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
