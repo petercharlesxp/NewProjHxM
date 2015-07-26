@@ -210,6 +210,7 @@
     <string name="status_bar_notification_info_overflow">999+</string>
     <!-- From: file:/C:/Users/Peter/StudioProjects/NewProjHxM/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="title_activity_detail">DetailActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <!-- From: file:/C:/Users/Peter/StudioProjects/NewProjHxM/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>

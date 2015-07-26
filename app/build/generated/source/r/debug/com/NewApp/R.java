@@ -1718,7 +1718,8 @@ containing a value of this type.
         public static final int labelHeartRate=0x7f050016;
         public static final int labelStatusMsg=0x7f050017;
         public static final int status_bar_notification_info_overflow=0x7f050018;
-        public static final int title_activity_main=0x7f050019;
+        public static final int title_activity_detail=0x7f050019;
+        public static final int title_activity_main=0x7f05001a;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f070073;
