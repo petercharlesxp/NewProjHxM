@@ -7,16 +7,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Set;
 
-import android.R.*;
-import android.app.Activity;
 import android.bluetooth.*;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,7 +23,7 @@ import android.widget.*;
 
 import zephyr.android.HxMBT.*;
 
-public class MainActivity extends Activity {
+public class HxMFragment extends FragmentActivity  {
     /** Called when the activity is first created. */
 	BluetoothAdapter adapter = null;
 	BTClient _bt;
@@ -39,7 +38,7 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.hxmfragment);
         /*Sending a message to android that we are going to initiate a pairing request*/
         IntentFilter filter = new IntentFilter("android.bluetooth.device.action.PAIRING_REQUEST");
         /*Registering a new BTBroadcast receiver from the Main Activity context with pairing request event*/
@@ -119,6 +118,10 @@ public class MainActivity extends Activity {
         			}
         		}
         	});
+
+			//ForecastFragment forecastFragment = ((ForecastFragment)getSupportFragmentManager()
+			//		.findFragmentById(R.id.fragment_forecast));
+
         }
         /*Obtaining the handle to act on the DISCONNECT button*/
         Button btnDisconnect = (Button) findViewById(R.id.ButtonDisconnect);
