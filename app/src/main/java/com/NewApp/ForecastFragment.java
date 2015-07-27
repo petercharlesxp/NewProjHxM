@@ -1,5 +1,6 @@
 package com.NewApp;
 
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -17,6 +18,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,6 +29,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -74,7 +79,7 @@ public class ForecastFragment extends Fragment {
 
     private void updateweather() {
         FetchWeatherTask weatherTask = new FetchWeatherTask();
-        weatherTask.execute("94043");
+        weatherTask.execute("1");
     }
 
     @Override
@@ -86,18 +91,6 @@ public class ForecastFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        String[] data = {
-//                "Today - Sunny - 86/63",
-//                "Tomorrow - Foggy - 70/40",
-//                "Weds - Cloudy - 72/63",
-//                "Turs - Asteroids - 73/65",
-//                "Fri - Heavy Rain - 65/56",
-//                "Sat - HELP TRAPPED IN WEATHERSATION - 60/51",
-//                "Sun - Sunny - 80/68"
-//        };
-//        List<String> weekForecast = new ArrayList<String>(
-//                Arrays.asList(data)
-//        );
 
         mForcastAdapter = new ArrayAdapter<String>(
                  getActivity(),
@@ -214,18 +207,19 @@ public class ForecastFragment extends Fragment {
 
             try {
                 //URL url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7");
-                final String FORECAST_BASE_URL =
-                        "http://api.openweathermap.org/data/2.5/forecast/daily?";
-                final String QUERY_PARAM = "q";
-                final String FORMAT_PARAM = "mode";
-                final String UNITS_PARAM = "units";
-                final String DAYS_PARAM = "cnt";
+                final String FORECAST_BASE_URL = "http://192.168.43.131/test1/index.php?";
+                        //"http://api.openweathermap.org/data/2.5/forecast/daily?";
+                final String QUERY_PARAM = "id";
+                //final String QUERY_PARAM = "q";
+//                final String FORMAT_PARAM = "mode";
+//                final String UNITS_PARAM = "units";
+//                final String DAYS_PARAM = "cnt";
 
                 Uri builtUri = Uri.parse(FORECAST_BASE_URL).buildUpon()
                         .appendQueryParameter(QUERY_PARAM, params[0])
-                        .appendQueryParameter(FORMAT_PARAM, format)
-                        .appendQueryParameter(UNITS_PARAM, units)
-                        .appendQueryParameter(DAYS_PARAM,Integer.toString(numDays))
+//                        .appendQueryParameter(FORMAT_PARAM, format)
+//                        .appendQueryParameter(UNITS_PARAM, units)
+//                        .appendQueryParameter(DAYS_PARAM,Integer.toString(numDays))
                         .build();
 
                 URL url = new URL(builtUri.toString());
@@ -271,8 +265,20 @@ public class ForecastFragment extends Fragment {
             }
 
             try {
-                return getWeatherDataFromJson(forecastJsonStr, numDays);
-            } catch (JSONException e) {
+                Gson gson = new Gson();
+                Type type = new TypeToken<ArrayList<Data>>(){}.getType();
+                ArrayList<Data> dataArrayList = gson.fromJson(forecastJsonStr, type);
+                ArrayList<String> stringArrayList = new ArrayList<String>();
+                for (Data data : dataArrayList) {
+//                    stringArrayList.add("id:"+data.getId()+" HeatRate:"+data.getHeartRate()+" InstantSpeed:"+data.getInstantSpeed()+" Posted:"+data.getPosted());
+                    stringArrayList.add(data.getId()+", "+data.getHeartRate()+", "+data.getInstantSpeed()+", "+data.getPosted());
+                }
+                String[] strArray = new String[stringArrayList.size()];
+                strArray = stringArrayList.toArray(strArray);
+                return strArray;
+                //return (String[])stringArrayList.toArray();
+                //return getWeatherDataFromJson(forecastJsonStr, numDays);
+            } catch (/*JSON*/Exception e) {
                 Log.e(LOG_TAG, e.getMessage(), e);
                 e.printStackTrace();
             }
