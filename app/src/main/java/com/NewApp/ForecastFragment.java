@@ -100,7 +100,7 @@ public class ForecastFragment extends Fragment {
                 new ArrayList<String>()
          );
 
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_forecast, container, false);
         ListView listView = (ListView) rootView.findViewById(R.id.listview_forecast);
         listView.setAdapter(mForcastAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -114,7 +114,7 @@ public class ForecastFragment extends Fragment {
             }
         });
 
-        //return inflater.inflate(R.layout.fragment_main, container, false);
+        //return inflater.inflate(R.layout.fragment_forecast, container, false);
         return rootView;
     }
 

@@ -1671,7 +1671,7 @@ containing a value of this type.
         public static final int abc_simple_dropdown_hint=0x7f030018;
         public static final int activity_detail=0x7f030019;
         public static final int fragment_detail=0x7f03001a;
-        public static final int fragment_main=0x7f03001b;
+        public static final int fragment_forecast =0x7f03001b;
         public static final int hxmfragment=0x7f03001c;
         public static final int list_item_forecast=0x7f03001d;
         public static final int notification_media_action=0x7f03001e;
