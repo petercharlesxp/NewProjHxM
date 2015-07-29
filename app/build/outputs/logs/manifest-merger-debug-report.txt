@@ -76,3 +76,11 @@ ADDED from AndroidManifest.xml:31:13
 		ADDED from AndroidManifest.xml:32:17
 	android:value
 		ADDED from AndroidManifest.xml:33:17
+uses-permission#android.permission.BLUETOOTH
+ADDED from AndroidManifest.xml:36:5
+	android:name
+		ADDED from AndroidManifest.xml:36:22
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from AndroidManifest.xml:37:5
+	android:name
+		ADDED from AndroidManifest.xml:37:22

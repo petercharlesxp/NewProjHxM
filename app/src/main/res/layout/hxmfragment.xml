@@ -4,7 +4,15 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fragment_forecast"
+        android:name="com.NewApp.ForecastFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.NewApp.ForecastFragment"
+        tools:layout="@android:layout/list_content" />
+
     <TextView 
     android:id = "@+id/Welcometext"
     android:layout_width="fill_parent" 
@@ -73,16 +81,8 @@
 	android:layout_below="@+id/StatusTextBox" 
 	android:layout_alignParentLeft="true"></EditText>
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/fragment_forecast"
-        android:name="com.NewApp.ForecastFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.NewApp.ForecastFragment"
-        tools:layout="@android:layout/list_content" />
 
-    
+
   
      
 </RelativeLayout>

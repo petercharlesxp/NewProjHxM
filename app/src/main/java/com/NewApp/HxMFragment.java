@@ -25,7 +25,7 @@ import android.widget.*;
 
 import zephyr.android.HxMBT.*;
 
-public class HxMFragment extends ActionBarActivity  {
+public class HxMFragment extends ActionBarActivity/*FragmentActivity*/  {
     /** Called when the activity is first created. */
 	BluetoothAdapter adapter = null;
 	BTClient _bt;
@@ -63,6 +63,14 @@ public class HxMFragment extends ActionBarActivity  {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hxmfragment);
+		//
+		//ForecastFragment forecastFragment = new ForecastFragment();
+//		if (savedInstanceState == null) {
+//			getSupportFragmentManager().beginTransaction()
+//					.add(R.id.fragment_container, new ForecastFragment())
+//					.commit();
+//		}
+		//
         /*Sending a message to android that we are going to initiate a pairing request*/
         IntentFilter filter = new IntentFilter("android.bluetooth.device.action.PAIRING_REQUEST");
         /*Registering a new BTBroadcast receiver from the Main Activity context with pairing request event*/

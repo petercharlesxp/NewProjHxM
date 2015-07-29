@@ -207,7 +207,7 @@ public class ForecastFragment extends Fragment {
 
             try {
                 //URL url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7");
-                final String FORECAST_BASE_URL = "http://192.168.43.131/test1/index.php?";
+                final String FORECAST_BASE_URL = "http://192.168.2.27/test1/index.php?";
                         //"http://api.openweathermap.org/data/2.5/forecast/daily?";
                 final String QUERY_PARAM = "id";
                 //final String QUERY_PARAM = "q";
