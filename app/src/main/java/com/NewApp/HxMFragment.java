@@ -63,14 +63,7 @@ public class HxMFragment extends ActionBarActivity/*FragmentActivity*/  {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hxmfragment);
-		//
-		//ForecastFragment forecastFragment = new ForecastFragment();
-//		if (savedInstanceState == null) {
-//			getSupportFragmentManager().beginTransaction()
-//					.add(R.id.fragment_container, new ForecastFragment())
-//					.commit();
-//		}
-		//
+
         /*Sending a message to android that we are going to initiate a pairing request*/
         IntentFilter filter = new IntentFilter("android.bluetooth.device.action.PAIRING_REQUEST");
         /*Registering a new BTBroadcast receiver from the Main Activity context with pairing request event*/
@@ -218,7 +211,8 @@ public class HxMFragment extends ActionBarActivity/*FragmentActivity*/  {
 			}
 		}
     }
-    
+
+
 
     final  Handler Newhandler = new Handler(){
     	public void handleMessage(Message msg)
@@ -231,6 +225,7 @@ public class HxMFragment extends ActionBarActivity/*FragmentActivity*/  {
     			tv = (EditText)findViewById(R.id.labelHeartRate);
     			System.out.println("Heart Rate Info is "+ HeartRatetext);
     			if (tv != null)tv.setText(HeartRatetext);
+
     		break;
     		
     		case INSTANT_SPEED:

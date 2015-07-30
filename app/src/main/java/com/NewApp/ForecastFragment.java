@@ -122,18 +122,18 @@ public class ForecastFragment extends Fragment {
 
         private final String LOG_TAG = FetchWeatherTask.class.getSimpleName();
 
-        private String getReadableDateString(long time) {
-            SimpleDateFormat shortenedDateFormat = new SimpleDateFormat("EEE MMM dd");
-            return shortenedDateFormat.format(time);
-        }
+//        private String getReadableDateString(long time) {
+//            SimpleDateFormat shortenedDateFormat = new SimpleDateFormat("EEE MMM dd");
+//            return shortenedDateFormat.format(time);
+//        }
 
-        private String formatHighLows(double high, double low) {
-            long roundedHigh = Math.round(high);
-            long roundedLow = Math.round(low);
-
-            String highLowStr = roundedHigh + "/" + roundedLow;
-            return  highLowStr;
-        }
+//        private String formatHighLows(double high, double low) {
+//            long roundedHigh = Math.round(high);
+//            long roundedLow = Math.round(low);
+//
+//            String highLowStr = roundedHigh + "/" + roundedLow;
+//            return  highLowStr;
+//        }
 
         @Override
         protected void onPostExecute(String[] result) {
@@ -146,53 +146,6 @@ public class ForecastFragment extends Fragment {
             }
         }
 
-        private String[] getWeatherDataFromJson(String forecastJsonStr, int numDays)
-            throws JSONException {
-            final String OWM_LIST = "list";
-            final String OWM_WEATHER = "weather";
-            final String OWM_TEMPERATURE = "temp";
-            final String OWM_MAX = "max";
-            final String OWM_MIN = "min";
-            final String OWM_DESCRIPTION = "main";
-
-            JSONObject forecastJson = new JSONObject(forecastJsonStr);
-            JSONArray weatherArray = forecastJson.getJSONArray(OWM_LIST);
-
-            Time dayTime = new Time();
-            dayTime.setToNow();
-
-            int julianStartDay = Time.getJulianDay(System.currentTimeMillis(), dayTime.gmtoff);
-
-            dayTime = new Time();
-
-            String[] resultStrs = new String[numDays];
-            for(int i = 0; i < weatherArray.length(); i++) {
-                String day;
-                String description;
-                String highAndLow;
-
-                JSONObject dayForecast = weatherArray.getJSONObject(i);
-
-                long dateTime;
-                dateTime = dayTime.setJulianDay(julianStartDay+i);
-                day = getReadableDateString(dateTime);
-
-                JSONObject weatherObject = dayForecast.getJSONArray(OWM_WEATHER).getJSONObject(0);
-                description = weatherObject.getString(OWM_DESCRIPTION);
-
-                JSONObject temperatureObject = dayForecast.getJSONObject(OWM_TEMPERATURE);
-                double high = temperatureObject.getDouble(OWM_MAX);
-                double low = temperatureObject.getDouble(OWM_MIN);
-
-                highAndLow = formatHighLows(high, low);
-                resultStrs[i] = day + " - " + description + " - " + highAndLow;
-            }
-
-            for (String s : resultStrs) {
-                Log.v(LOG_TAG, "Forecast entry: " + s);
-            }
-            return resultStrs;
-        }
 
         @Override
         protected String[] doInBackground(String... params) {
@@ -201,25 +154,14 @@ public class ForecastFragment extends Fragment {
             BufferedReader reader = null;
             String forecastJsonStr = null;
 
-            String format = "json";
-            String units = "metric";
-            int numDays = 7;
-
             try {
                 //URL url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7");
                 final String FORECAST_BASE_URL = "http://192.168.2.27/test1/index.php?";
                         //"http://api.openweathermap.org/data/2.5/forecast/daily?";
                 final String QUERY_PARAM = "id";
-                //final String QUERY_PARAM = "q";
-//                final String FORMAT_PARAM = "mode";
-//                final String UNITS_PARAM = "units";
-//                final String DAYS_PARAM = "cnt";
 
                 Uri builtUri = Uri.parse(FORECAST_BASE_URL).buildUpon()
                         .appendQueryParameter(QUERY_PARAM, params[0])
-//                        .appendQueryParameter(FORMAT_PARAM, format)
-//                        .appendQueryParameter(UNITS_PARAM, units)
-//                        .appendQueryParameter(DAYS_PARAM,Integer.toString(numDays))
                         .build();
 
                 URL url = new URL(builtUri.toString());

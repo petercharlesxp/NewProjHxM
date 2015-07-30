@@ -71,10 +71,15 @@ public class NewConnectedListener extends ConnectListenerImpl
 					text1.setData(b1);
 					_aNewHandler.sendMessage(text1);
 					System.out.println("Instant Speed is "+ InstantSpeed);
-					
+
+					insertHxM(String.valueOf(HRate), String.valueOf(InstantSpeed));//
 				}
 			}
 		});
 	}
-	
+
+	private void insertHxM(String heartrate, String instantspeed) {//
+		InsertHxm insertHxm = new InsertHxm();
+		insertHxm.execute(heartrate, instantspeed);
+	}
 }
