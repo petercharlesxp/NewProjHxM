@@ -144,8 +144,8 @@ public class HxMFragment extends ActionBarActivity/*FragmentActivity*/  {
         		}
         	});
 
-			//ForecastFragment forecastFragment = ((ForecastFragment)getSupportFragmentManager()
-			//		.findFragmentById(R.id.fragment_forecast));
+			//ListViewFragment forecastFragment = ((ListViewFragment)getSupportFragmentManager()
+			//		.findFragmentById(R.id.fragment_listview));
 
         }
         /*Obtaining the handle to act on the DISCONNECT button*/

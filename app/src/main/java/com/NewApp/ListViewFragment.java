@@ -1,12 +1,12 @@
 package com.NewApp;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,6 +18,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -32,7 +35,6 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 //import java.sql.Time;
@@ -41,11 +43,11 @@ import java.util.ArrayList;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class ForecastFragment extends Fragment {
+public class ListViewFragment extends Fragment {
 
-    private ArrayAdapter<String> mForcastAdapter;
+    private ArrayAdapter<String> mListViewAdapter;
 
-    public ForecastFragment() {
+    public ListViewFragment() {
     }
 
     @Override
@@ -70,43 +72,100 @@ public class ForecastFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
-            updateweather();
+            updateListView();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void updateweather() {
-        FetchWeatherTask weatherTask = new FetchWeatherTask();
-        weatherTask.execute("1");
+    private void updateListView() {
+//        FetchWeatherTask weatherTask = new FetchWeatherTask();
+//        weatherTask.execute("1");
+
+        String url = "http://192.168.2.27/test1/index.php?id=1";
+        ProgressDialog PD;
+
+        PD = new ProgressDialog(this.getActivity());
+        PD.setMessage("Loading......");
+        PD.setCancelable(false);
+
+        mListViewAdapter.clear();
+        MakeJsonArrayReq(PD, url);
+    }
+
+    private void MakeJsonArrayReq(ProgressDialog PD, String url) {
+        PD.show();
+
+        JsonArrayRequest jreq = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jo = response.getJSONObject(i);
+                        ArrayList<String> stringArrayList = new ArrayList<>();
+                        stringArrayList.add(jo.getString("id")+", "+jo.getString("HeartRate")+", "+jo.getString("InstantSpeed")+", "+jo.getString("posted"));
+                        String[] strArray = new String[stringArrayList.size()];
+                        strArray = stringArrayList.toArray(strArray);
+                        if (strArray != null) {
+                            //mListViewAdapter.clear();
+                            for (String listViewItem : strArray) {
+                                mListViewAdapter.add(listViewItem);
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                //PD.dismiss();
+                mListViewAdapter.notifyDataSetChanged();
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+        PD.dismiss();//
+        WebClientVolley.getInstance(this.getActivity()).addToReqQueue(jreq/*, "jreq"*/);
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        updateweather();
+//        while (true)
+//        {
+//            updateListView();
+//            try {
+//                //thread to sleep for the specified number of milliseconds
+//                Thread.sleep(10000);
+//            } catch ( java.lang.InterruptedException ie) {
+//                System.out.println(ie);
+//            }
+//        }
+        updateListView();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        mForcastAdapter = new ArrayAdapter<String>(
+        mListViewAdapter = new ArrayAdapter<String>(
                  getActivity(),
-                 R.layout.list_item_forecast,
-                 R.id.list_item_forecast_textview,
-//                 weekForecast
+                 R.layout.list_item_hxm,
+                 R.id.list_item_hxm_textview,
                 new ArrayList<String>()
          );
 
-        View rootView = inflater.inflate(R.layout.fragment_forecast, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_listview, container, false);
         ListView listView = (ListView) rootView.findViewById(R.id.listview_forecast);
-        listView.setAdapter(mForcastAdapter);
+        listView.setAdapter(mListViewAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String forecast = mForcastAdapter.getItem(position);
+                String forecast = mListViewAdapter.getItem(position);
                 //Toast.makeText(getActivity(),forecast,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), DetailActivity.class)
                         .putExtra(Intent.EXTRA_TEXT, forecast);
@@ -114,7 +173,7 @@ public class ForecastFragment extends Fragment {
             }
         });
 
-        //return inflater.inflate(R.layout.fragment_forecast, container, false);
+        //return inflater.inflate(R.layout.fragment_listview, container, false);
         return rootView;
     }
 
@@ -122,26 +181,13 @@ public class ForecastFragment extends Fragment {
 
         private final String LOG_TAG = FetchWeatherTask.class.getSimpleName();
 
-//        private String getReadableDateString(long time) {
-//            SimpleDateFormat shortenedDateFormat = new SimpleDateFormat("EEE MMM dd");
-//            return shortenedDateFormat.format(time);
-//        }
-
-//        private String formatHighLows(double high, double low) {
-//            long roundedHigh = Math.round(high);
-//            long roundedLow = Math.round(low);
-//
-//            String highLowStr = roundedHigh + "/" + roundedLow;
-//            return  highLowStr;
-//        }
-
         @Override
         protected void onPostExecute(String[] result) {
             //super.onPostExecute(result);
             if (result != null) {
-                mForcastAdapter.clear();
+                mListViewAdapter.clear();
                 for (String dayForecastStr : result) {
-                    mForcastAdapter.add(dayForecastStr);
+                    mListViewAdapter.add(dayForecastStr);
                 }
             }
         }
