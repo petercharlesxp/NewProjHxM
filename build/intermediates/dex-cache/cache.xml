@@ -2,53 +2,53 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Peter\StudioProjects\NewProjHxM\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jar="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\build\intermediates\pre-dexed\debug\classes-28a83b26530faf8f39c53c345044edc561872f00.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxM\app\build\intermediates\pre-dexed\debug\classes-9026451f260a32ca8fdf8e40c288291819fe12a0.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\StudioProjects\NewProjHxM\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxM\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-2073b5804be220e0fdd31b589839231b4036e948.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\StudioProjects\NewProjHxM\app\build\intermediates\exploded-aar\NewProjHxM.app.libraries\volley\unspecified\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="385169bb14b4a9d9c4b75135c82a8dd408f595f8">
-        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxM\app\build\intermediates\pre-dexed\debug\classes-86a59ff4f51d81b3be5fcfffa19580d5f0d818b1.jar" />
+        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\build\intermediates\pre-dexed\debug\classes-32e333c697cdb597c71ab93c74a51050488b7dad.jar" />
     </item>
     <item
         jar="C:\Users\Peter\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxM\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-fc2d3dfd9a60d771f26bb23cb218cca402eb1035.jar" />
+        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-fc2d3dfd9a60d771f26bb23cb218cca402eb1035.jar" />
     </item>
     <item
-        jar="C:\Users\Peter\StudioProjects\NewProjHxM\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxM\app\build\intermediates\pre-dexed\debug\classes-2a4465b79db9730f505e5cc1e3ee909cde721b87.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\StudioProjects\NewProjHxM\app\libs\gson-2.3.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxM\app\build\intermediates\pre-dexed\debug\gson-2.3.1-20dae9c9d63c687a5169af9fc7588bcd0caea6c5.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\StudioProjects\NewProjHxM\app\libs\HxMBT.jar"
+        jar="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\libs\HxMBT.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="a0f231edd201f26ebb42244dd8a18ffcb07e462b">
-        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxM\app\build\intermediates\pre-dexed\debug\HxMBT-6a3dd7933174e3b734fd903e96d7b6a7dfef5f3a.jar" />
+        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\build\intermediates\pre-dexed\debug\HxMBT-7d60b54774583117a162c87f8b97be554ed7be59.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-46d0b931e5630f92e33d972f13d0914b343991bf.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\libs\gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\build\intermediates\pre-dexed\debug\gson-2.3.1-4fa3df4bdef8a0d030634003bef05a66c2f88e8a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.mcxiaoke.volley\library\1.0.18\38da306aafee11459cd935a01d2c92a98dc670a4\library-1.0.18.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="38da306aafee11459cd935a01d2c92a98dc670a4">
+        <dex dex="C:\Users\Peter\StudioProjects\NewProjHxMAndroidStudio\app\build\intermediates\pre-dexed\debug\library-1.0.18-f508510b1ff0ce13e4bf1fd8fea2afcfecdb8e26.jar" />
     </item>
 
 </items>
