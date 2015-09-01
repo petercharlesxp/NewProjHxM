@@ -80,18 +80,19 @@ public class ListViewFragment extends Fragment {
     }
 
     private void updateListView() {
-//        FetchWeatherTask weatherTask = new FetchWeatherTask();
-//        weatherTask.execute("1");
+//        String url = "http://192.168.2.27/test1/index.php?id=1";
+//        ProgressDialog PD;
+//
+//        PD = new ProgressDialog(this.getActivity());
+//        PD.setMessage("Loading......");
+//        PD.setCancelable(false);
+//
+//        mListViewAdapter.clear();
+//        MakeJsonArrayReq(PD, url);
 
-        String url = "http://192.168.2.27/test1/index.php?id=1";
-        ProgressDialog PD;
+        FetchHxMTask hxMTask = new FetchHxMTask(getActivity(), mListViewAdapter);
+        hxMTask.execute("1");
 
-        PD = new ProgressDialog(this.getActivity());
-        PD.setMessage("Loading......");
-        PD.setCancelable(false);
-
-        mListViewAdapter.clear();
-        MakeJsonArrayReq(PD, url);
     }
 
     private void MakeJsonArrayReq(ProgressDialog PD, String url) {

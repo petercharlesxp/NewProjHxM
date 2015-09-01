@@ -37,6 +37,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.NewApp.HxMFragment" />
         </activity>
+
+        <provider
+            android:name="com.NewApp.data.HxMProvider"
+            android:authorities="com.NewApp" />
     </application>
 
 </manifest>

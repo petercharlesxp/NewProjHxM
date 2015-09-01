@@ -32,6 +32,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.NewApp.HxMFragment" />
         </activity>
+        <provider
+            android:authorities="com.NewApp"
+            android:name=".data.HxMProvider" />
     </application>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
